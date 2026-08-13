@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "924241672666",
+    "project_id": "bmical-ac87d",
+    "storage_bucket": "bmical-ac87d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924241672666:android:8b0dc796fdf1eb45d428e3",
+        "android_client_info": {
+          "package_name": "com.ivinnovations.bmi_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924241672666-fbc9aolfs3sl4j6g4iemndja96k81k0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFO64Rak89tLRB-xZsUCuJVPA8vQf-P4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924241672666-fbc9aolfs3sl4j6g4iemndja96k81k0m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "924241672666-ffn1hn0goe5ib8t9p3ptiurblotol12l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ivinnovations.bmiTracker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
