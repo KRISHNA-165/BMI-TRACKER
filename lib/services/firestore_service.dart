@@ -17,25 +17,21 @@ class FirestoreService {
 
   Future<void> createOrUpdateUserDoc(String userId, String email) async {
     if (!_canUseFirestore) return;
-    try {
-      await _userDoc(userId).set({
-        'email': email,
-        'createdAt': FieldValue.serverTimestamp(),
-        'lastActiveAt': FieldValue.serverTimestamp(),
-      }, SetOptions(merge: true));
-    } catch (_) {}
+    await _userDoc(userId).set({
+      'email': email,
+      'createdAt': FieldValue.serverTimestamp(),
+      'lastActiveAt': FieldValue.serverTimestamp(),
+    }, SetOptions(merge: true));
   }
 
   Future<List<UserProfile>> getProfiles(String userId) async {
     if (_canUseFirestore) {
-      try {
-        final snapshot = await _profilesCol(userId).get();
-        final profiles = snapshot.docs.map((doc) {
-          return UserProfile.fromMap(doc.id, doc.data() as Map<String, dynamic>);
-        }).toList();
-        await StorageService.saveProfilesLocally(userId, profiles);
-        return profiles;
-      } catch (_) {}
+      final snapshot = await _profilesCol(userId).get();
+      final profiles = snapshot.docs.map((doc) {
+        return UserProfile.fromMap(doc.id, doc.data() as Map<String, dynamic>);
+      }).toList();
+      await StorageService.saveProfilesLocally(userId, profiles);
+      return profiles;
     }
     return StorageService.getLocalProfiles(userId);
   }
@@ -56,9 +52,7 @@ class FirestoreService {
 
   Future<void> saveProfile(String userId, UserProfile profile) async {
     if (_canUseFirestore) {
-      try {
-        await _profilesCol(userId).doc(profile.id).set(profile.toMap(), SetOptions(merge: true));
-      } catch (_) {}
+      await _profilesCol(userId).doc(profile.id).set(profile.toMap(), SetOptions(merge: true));
     }
 
     final existing = StorageService.getLocalProfiles(userId);
@@ -78,9 +72,7 @@ class FirestoreService {
     }
 
     if (_canUseFirestore) {
-      try {
-        await _profilesCol(userId).doc(profileId).delete();
-      } catch (_) {}
+      await _profilesCol(userId).doc(profileId).delete();
     }
 
     final updated = profiles.where((p) => p.id != profileId).toList();
@@ -90,16 +82,14 @@ class FirestoreService {
   /// Fetch weight history — all entries (caller is responsible for filtering to 7 days).
   Future<List<WeightEntry>> getWeightHistory(String userId, String profileId) async {
     if (_canUseFirestore) {
-      try {
-        final snapshot = await _weightHistoryCol(userId, profileId)
-            .orderBy('loggedAt', descending: false)
-            .get();
-        final entries = snapshot.docs.map((doc) {
-          return WeightEntry.fromMap(doc.id, doc.data() as Map<String, dynamic>);
-        }).toList();
-        await StorageService.saveWeightHistoryLocally(profileId, entries);
-        return entries;
-      } catch (_) {}
+      final snapshot = await _weightHistoryCol(userId, profileId)
+          .orderBy('loggedAt', descending: false)
+          .get();
+      final entries = snapshot.docs.map((doc) {
+        return WeightEntry.fromMap(doc.id, doc.data() as Map<String, dynamic>);
+      }).toList();
+      await StorageService.saveWeightHistoryLocally(profileId, entries);
+      return entries;
     }
     return StorageService.getLocalWeightHistory(profileId);
   }
@@ -123,9 +113,7 @@ class FirestoreService {
 
   Future<void> addWeightEntry(String userId, String profileId, WeightEntry entry) async {
     if (_canUseFirestore) {
-      try {
-        await _weightHistoryCol(userId, profileId).doc(entry.id).set(entry.toMap());
-      } catch (_) {}
+      await _weightHistoryCol(userId, profileId).doc(entry.id).set(entry.toMap());
     }
 
     final existing = StorageService.getLocalWeightHistory(profileId);

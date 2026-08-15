@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "924241672666-ah2drulp8giagbo8n8pt8r6q9bqjppq0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ivinnovations.bmi_tracker",
+            "certificate_hash": "43cfb7ff62854d3097b15f9427a939f3efb60911"
+          }
+        },
+        {
           "client_id": "924241672666-fbc9aolfs3sl4j6g4iemndja96k81k0m.apps.googleusercontent.com",
           "client_type": 3
         }

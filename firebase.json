@@ -1,1 +1,43 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"bmical-ac87d","appId":"1:924241672666:android:8b0dc796fdf1eb45d428e3","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"bmical-ac87d","appId":"1:924241672666:ios:567ee3007c3519cad428e3","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"macos":{"default":{"projectId":"bmical-ac87d","appId":"1:924241672666:ios:567ee3007c3519cad428e3","uploadDebugSymbols":false,"fileOutput":"macos/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"bmical-ac87d","configurations":{"android":"1:924241672666:android:8b0dc796fdf1eb45d428e3","ios":"1:924241672666:ios:567ee3007c3519cad428e3","macos":"1:924241672666:ios:567ee3007c3519cad428e3","web":"1:924241672666:web:f742e49476290a54d428e3"}}}}}}
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "bmical-ac87d",
+          "appId": "1:924241672666:android:8b0dc796fdf1eb45d428e3",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "bmical-ac87d",
+          "appId": "1:924241672666:ios:567ee3007c3519cad428e3",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "macos": {
+        "default": {
+          "projectId": "bmical-ac87d",
+          "appId": "1:924241672666:ios:567ee3007c3519cad428e3",
+          "uploadDebugSymbols": false,
+          "fileOutput": "macos/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "bmical-ac87d",
+          "configurations": {
+            "android": "1:924241672666:android:8b0dc796fdf1eb45d428e3",
+            "ios": "1:924241672666:ios:567ee3007c3519cad428e3",
+            "macos": "1:924241672666:ios:567ee3007c3519cad428e3",
+            "web": "1:924241672666:web:f742e49476290a54d428e3"
+          }
+        }
+      }
+    }
+  }
+}

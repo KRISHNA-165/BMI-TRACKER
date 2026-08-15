@@ -84,20 +84,32 @@ class HomeScreen extends ConsumerWidget {
 
                   final weightKg = isLbs ? BmiCalculator.lbsToKg(inputVal) : inputVal;
 
-                  await ref.read(profileNotifierProvider.notifier).updateProfileMetrics(
-                        profileId: activeProfile.id,
-                        weightKg: weightKg,
-                      );
+                  try {
+                    await ref.read(profileNotifierProvider.notifier).updateProfileMetrics(
+                          profileId: activeProfile.id,
+                          weightKg: weightKg,
+                        );
 
-                  if (context.mounted) {
-                    Navigator.pop(context);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Weight logged and BMI recalculated!'),
-                        backgroundColor: AppColors.normalWeight,
-                        behavior: SnackBarBehavior.floating,
-                      ),
-                    );
+                    if (context.mounted) {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Weight logged and BMI recalculated!'),
+                          backgroundColor: AppColors.normalWeight,
+                          behavior: SnackBarBehavior.floating,
+                        ),
+                      );
+                    }
+                  } catch (e) {
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Failed to save to Firestore: ${e.toString()}'),
+                          backgroundColor: AppColors.overweight,
+                          behavior: SnackBarBehavior.floating,
+                        ),
+                      );
+                    }
                   }
                 },
                 child: const Text('Save & Update History'),
